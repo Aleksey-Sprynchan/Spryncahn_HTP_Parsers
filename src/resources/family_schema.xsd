@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.htp.by/family_schema" 
+	xmlns:family="http://www.htp.by/family_schema"
+	elementFormDefault="qualified">
+
+
+	<xs:element name="family" type="family:family_type" />
+
+	<xs:complexType name="family_type">
+		<xs:sequence>
+			<xs:element name="mother" type="family:mother_type" />
+			<xs:element name="father" type="family:father_type" />
+			<xs:element name="children" type="family:children_type" />
+		</xs:sequence>
+	<xs:attribute name="start-date" type="xs:date"></xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="family_member_type">
+		<xs:sequence>
+			<xs:element name="name" type="family:family_name_type"></xs:element>
+			<xs:element name="surname" type="xs:string"></xs:element>
+			<xs:element name="age" type="xs:int"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="family_name_type">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Z][a-z]+"></xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="mother_type">
+		<xs:complexContent>
+			<xs:extension base="family:family_member_type">
+				<xs:sequence>
+					<xs:element name="maiden-name" type="xs:string"></xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="father_type">
+		<xs:complexContent>
+			<xs:extension base="family:family_member_type">
+				<xs:sequence>
+					<xs:element name="salary" type="xs:int"></xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="children_type">
+		<xs:sequence>
+			<xs:element name="child" type="family:child_type" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="child_type">
+		<xs:complexContent>
+			<xs:extension base="family:family_member_type">
+				<xs:sequence>
+					<xs:element name="gender">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="male"></xs:enumeration>
+								<xs:enumeration value="female"></xs:enumeration>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+</xs:schema>

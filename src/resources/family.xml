@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<family start-date="2010-08-29"
+xmlns="http://www.htp.by/family_schema"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.htp.by/family_schema family_schema.xsd">
+	<mother>
+		<name>Anna</name>
+		<surname>Petrova</surname>
+		<age>35</age>
+		<maiden-name>Ivanova</maiden-name>
+	</mother>
+	<father>
+		<name>Pavel</name>
+		<surname>Petrov</surname>
+		<age>36</age>
+		<salary>50</salary>
+	</father>
+	<children>
+		<child>
+			<name>Kirill</name>
+			<surname>Petrov</surname>
+			<age>5</age>
+			<gender>male</gender>
+		</child>
+		<child>
+			<name>Egor</name>
+			<surname>Petrov</surname>
+			<age>6</age>
+			<gender>male</gender>
+		</child>
+		<child>
+			<name>Kate</name>
+			<surname>Petrova</surname>
+			<age>2</age>
+			<gender>female</gender>
+		</child>
+	</children>
+</family>
